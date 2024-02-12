@@ -1,0 +1,12 @@
+# compose.yaml
+
+services:
+  syn-tg-bot:
+    build:
+      context: .
+    ports:
+      - 8000:8000  # Должно соответствовать METRICS_PORT
+    environment:
+      - METRICS_PORT=8000
+    env_file:
+      - .env
