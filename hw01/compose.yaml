@@ -4,6 +4,7 @@ services:
   syn-tg-bot:
     build:
       context: .
+      dockerfile: ../dev/Dockerfile
     ports:
       - 8000:8000  # Должно соответствовать METRICS_PORT
     environment:

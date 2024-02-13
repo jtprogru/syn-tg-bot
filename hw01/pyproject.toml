@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "syn-tg-bot"
+name = "syn-tg-bot-hw01"
 version = "0.1.0"
 description = ""
 authors = ["Michael Savin <jtprogru@gmail.com>"]

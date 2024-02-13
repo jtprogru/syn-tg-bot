@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+---
+version: "3"
+
+set:
+  - pipefail
+
+vars:
+  HW_DIR: ./hw01
+
+silent: false
+
+tasks:
+  venv:
+    desc: Create Poetry environment
+    dir: '{{ .HW_DIR }}'
+    preconditions:
+      - test -f $(which poetry)
+    cmds:
+      - poetry env use python3.11
+      - poetry install --no-root
+    run: once
+    internal: true
+
+  run:
+    desc: Run HW01
+    dir: '{{ .HW_DIR }}'
+    preconditions:
+      - test -f $(which poetry)
+    deps:
+      - venv
+    cmds:
+      - poetry run python main.py
+    dotenv:
+      - .env
+
+  dc:up:
+    desc: Run docker compose up
+    dir: '{{ .HW_DIR }}'
+    preconditions:
+      - test -f $(which docker)
+    cmds:
+      - docker compose up -d --build
+    dotenv:
+      - .env
+
+  dc:down:
+    desc: Run docker compose down
+    dir: '{{ .HW_DIR }}'
+    preconditions:
+      - test -f $(which docker)
+    cmds:
+      - docker compose down
