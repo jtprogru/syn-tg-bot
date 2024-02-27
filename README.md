@@ -35,6 +35,7 @@ METRICS_PORT=8000
 - Домашнее задание 3 – [hw03](hw03/README.md)
 - Домашнее задание 4 – [hw04](hw04/README.md)
 - Домашнее задание 6 – [hw06](hw06/README.md)
+- Домашнее задание 9 – [hw09](hw09/README.md)
 
 ## License
 
