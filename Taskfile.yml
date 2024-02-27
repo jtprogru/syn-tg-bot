@@ -20,6 +20,9 @@ includes:
   hw04:
     taskfile: ./hw04/Taskfile.yml
     optional: true
+  hw06:
+    taskfile: ./hw06/Taskfile.yml
+    optional: true
 
 tasks:
   default:
