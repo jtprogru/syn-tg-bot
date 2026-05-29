@@ -8,7 +8,6 @@ import re
 import random
 from distutils.util import strtobool
 
-import aiohttp
 from prometheus_client import start_http_server, Summary, Counter
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (

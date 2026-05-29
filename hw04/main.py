@@ -74,9 +74,9 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Обработка команды start."""
 
     msg = (
-        f"**Привет\!**\nЯ помогу вам рассылать сообщения\.\n\n"
-        + f"\/ping \- проверка жизнеспособности\n"
-        + f"\/help \- для получения справки"
+        "**Привет\!**\nЯ помогу вам рассылать сообщения\.\n\n"
+        + "\/ping \- проверка жизнеспособности\n"
+        + "\/help \- для получения справки"
     )
 
     await update.message.reply_markdown_v2(msg)

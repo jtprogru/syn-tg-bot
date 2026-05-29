@@ -4,7 +4,6 @@ Synergy Telegram Bot
 
 import logging
 import os
-import random
 import re
 from distutils.util import strtobool
 
@@ -76,9 +75,9 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Обработка команды start."""
 
     msg = (
-        f"**Привет\!**\nЯ помогу вам рассылать сообщения\.\n\n"
-        + f"\/ping \- проверка жизнеспособности\n"
-        + f"\/help \- для получения справки"
+        "**Привет\!**\nЯ помогу вам рассылать сообщения\.\n\n"
+        + "\/ping \- проверка жизнеспособности\n"
+        + "\/help \- для получения справки"
     )
 
     await update.message.reply_markdown_v2(msg)
@@ -122,11 +121,13 @@ async def create_poll_handler(update: Update, context: ContextTypes.DEFAULT_TYPE
     """Создает опрос из сообщения пользователя."""
 
     message_text = update.message.text
-    lines = message_text.strip().split('\n')
+    lines = message_text.strip().split("\n")
 
     # Проверка на количество строк в сообщении
     if len(lines) < 3:
-        await update.message.reply_text("Сообщение слишком короткое. Необходимо минимум 3 строки.")
+        await update.message.reply_text(
+            "Сообщение слишком короткое. Необходимо минимум 3 строки."
+        )
         return
     elif len(lines) > 11:
         await update.message.reply_text("Сообщение слишком длинное. Максимум 11 строк.")
@@ -136,7 +137,6 @@ async def create_poll_handler(update: Update, context: ContextTypes.DEFAULT_TYPE
     question = lines[0]  # Вопрос
     options = lines[1:]  # Варианты ответов
     await context.bot.send_poll(update.effective_chat.id, question, options)
-
 
 
 # Функции обработчики команд будут здесь

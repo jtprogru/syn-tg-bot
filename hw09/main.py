@@ -1,6 +1,5 @@
 import logging
 import os
-import re
 from distutils.util import strtobool
 import random
 
