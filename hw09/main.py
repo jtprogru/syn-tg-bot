@@ -1,6 +1,5 @@
 import logging
 import os
-from distutils.util import strtobool
 import random
 
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
@@ -12,7 +11,7 @@ from telegram.ext import (
 )
 
 TOKEN = os.getenv("TG_BOT_TOKEN", default=None)
-DEBUG = bool(strtobool(os.getenv("DEBUG", default="False")))
+DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
 
 if (TOKEN is None) or (TOKEN == ""):
     raise ValueError("TG_BOT_TOKEN is not set")

@@ -6,7 +6,6 @@ import logging
 import os
 import re
 import random
-from distutils.util import strtobool
 
 from prometheus_client import start_http_server, Summary, Counter
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
@@ -19,7 +18,7 @@ from telegram.ext import (
 
 # Чтение токена из переменной окружения
 TOKEN = os.getenv("TG_BOT_TOKEN", default=None)
-DEBUG = bool(strtobool(os.getenv("DEBUG", default="False")))
+DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
 METRICS_PORT = int(os.getenv("METRICS_PORT", default=8000))
 
 
