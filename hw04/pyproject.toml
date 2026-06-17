@@ -11,7 +11,7 @@ dependencies = [
     "gunicorn>=23",
     "uvicorn>=0.32",
     "prometheus-client>=0.21",
-    "aiohttp>=3.10",
+    "aiohttp>=3.14.1",
 ]
 
 [tool.uv]
